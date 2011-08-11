@@ -36,7 +36,7 @@
 		834D0EF213F35EB900ECDAE7 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 834D0EEE13F35EB900ECDAE7 /* FMResultSet.m */; };
 		834D0EF313F35EB900ECDAE7 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 834D0EEF13F35EB900ECDAE7 /* LICENSE.txt */; };
 		834D0EF613F35ED000ECDAE7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 834D0EF513F35ED000ECDAE7 /* libsqlite3.dylib */; };
-		834D0EFA13F35F1800ECDAE7 /* HnDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 834D0EF913F35F1800ECDAE7 /* HnDb.m */; };
+		83F1A88B13F37A36003E1EC9 /* HnDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F1A88A13F37A36003E1EC9 /* HnDb.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,8 +81,8 @@
 		834D0EEE13F35EB900ECDAE7 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		834D0EEF13F35EB900ECDAE7 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		834D0EF513F35ED000ECDAE7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		834D0EF813F35F1800ECDAE7 /* HnDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HnDb.h; sourceTree = "<group>"; };
-		834D0EF913F35F1800ECDAE7 /* HnDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HnDb.m; sourceTree = "<group>"; };
+		83F1A88913F37A36003E1EC9 /* HnDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HnDb.h; sourceTree = "<group>"; };
+		83F1A88A13F37A36003E1EC9 /* HnDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HnDb.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +131,7 @@
 		8334697213F28D1F00ACD8BE /* HackerNewsReader */ = {
 			isa = PBXGroup;
 			children = (
-				834D0EF713F35F0800ECDAE7 /* HnDb */,
+				83F1A88813F37A36003E1EC9 /* HnDb */,
 				834D0EE813F35EB900ECDAE7 /* fmdb */,
 				8334699813F2911700ACD8BE /* Assets */,
 				8334699213F2900900ACD8BE /* Tabs */,
@@ -204,14 +204,13 @@
 			path = fmdb;
 			sourceTree = "<group>";
 		};
-		834D0EF713F35F0800ECDAE7 /* HnDb */ = {
+		83F1A88813F37A36003E1EC9 /* HnDb */ = {
 			isa = PBXGroup;
 			children = (
-				834D0EF813F35F1800ECDAE7 /* HnDb.h */,
-				834D0EF913F35F1800ECDAE7 /* HnDb.m */,
+				83F1A88913F37A36003E1EC9 /* HnDb.h */,
+				83F1A88A13F37A36003E1EC9 /* HnDb.m */,
 			);
-			name = HnDb;
-			path = ../../../Temp/HnDb;
+			path = HnDb;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,7 +295,7 @@
 				834D0EF013F35EB900ECDAE7 /* FMDatabase.m in Sources */,
 				834D0EF113F35EB900ECDAE7 /* FMDatabaseAdditions.m in Sources */,
 				834D0EF213F35EB900ECDAE7 /* FMResultSet.m in Sources */,
-				834D0EFA13F35F1800ECDAE7 /* HnDb.m in Sources */,
+				83F1A88B13F37A36003E1EC9 /* HnDb.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

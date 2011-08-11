@@ -7,6 +7,7 @@
 //
 
 #import "HackerNewsReaderAppDelegate.h"
+#import "HnDb.h"
 
 @implementation HackerNewsReaderAppDelegate
 
