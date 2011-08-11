@@ -7,6 +7,8 @@
 //
 
 #import "HnDb.h"
+#import "FMDatabase.h"
+#import "ConciseKit.h"
 
 @implementation HnDb
 
@@ -24,7 +26,9 @@ HnDb* _hnDbSingleton;
 - (id)init {
     self = [super init];
     if (self) {
-        fmdb = 
+        [$ documentPath] => path to user's document directory
+        
+        fmdb = [[FMDatabase alloc] initWithPath:<#(NSString *)#>];
     }
     return self;
 }
