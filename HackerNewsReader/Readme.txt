@@ -6,3 +6,4 @@ I'm creating this app as a learning exercise for me, and to 'scratch my own itch
 
 Attributions:
 * Icons by app-bits: http://app-bits.com/free-icons.html
+* FMDB sqlite wrapper: https://github.com/ccgus/fmdb

@@ -31,6 +31,12 @@
 		833469B513F2945300ACD8BE /* Best.xib in Resources */ = {isa = PBXBuildFile; fileRef = 833469B313F2945300ACD8BE /* Best.xib */; };
 		833469B913F350F900ACD8BE /* Comments.m in Sources */ = {isa = PBXBuildFile; fileRef = 833469B713F350F900ACD8BE /* Comments.m */; };
 		833469BA13F350F900ACD8BE /* Comments.xib in Resources */ = {isa = PBXBuildFile; fileRef = 833469B813F350F900ACD8BE /* Comments.xib */; };
+		834D0EF013F35EB900ECDAE7 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 834D0EEA13F35EB900ECDAE7 /* FMDatabase.m */; };
+		834D0EF113F35EB900ECDAE7 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 834D0EEC13F35EB900ECDAE7 /* FMDatabaseAdditions.m */; };
+		834D0EF213F35EB900ECDAE7 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 834D0EEE13F35EB900ECDAE7 /* FMResultSet.m */; };
+		834D0EF313F35EB900ECDAE7 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 834D0EEF13F35EB900ECDAE7 /* LICENSE.txt */; };
+		834D0EF613F35ED000ECDAE7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 834D0EF513F35ED000ECDAE7 /* libsqlite3.dylib */; };
+		834D0EFA13F35F1800ECDAE7 /* HnDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 834D0EF913F35F1800ECDAE7 /* HnDb.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +73,16 @@
 		833469B613F350F900ACD8BE /* Comments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comments.h; sourceTree = "<group>"; };
 		833469B713F350F900ACD8BE /* Comments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comments.m; sourceTree = "<group>"; };
 		833469B813F350F900ACD8BE /* Comments.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Comments.xib; sourceTree = "<group>"; };
+		834D0EE913F35EB900ECDAE7 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		834D0EEA13F35EB900ECDAE7 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		834D0EEB13F35EB900ECDAE7 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		834D0EEC13F35EB900ECDAE7 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		834D0EED13F35EB900ECDAE7 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		834D0EEE13F35EB900ECDAE7 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		834D0EEF13F35EB900ECDAE7 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		834D0EF513F35ED000ECDAE7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		834D0EF813F35F1800ECDAE7 /* HnDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HnDb.h; sourceTree = "<group>"; };
+		834D0EF913F35F1800ECDAE7 /* HnDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HnDb.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				834D0EF613F35ED000ECDAE7 /* libsqlite3.dylib in Frameworks */,
 				8334696D13F28D1F00ACD8BE /* UIKit.framework in Frameworks */,
 				8334696F13F28D1F00ACD8BE /* Foundation.framework in Frameworks */,
 				8334697113F28D1F00ACD8BE /* CoreGraphics.framework in Frameworks */,
@@ -86,6 +103,7 @@
 		8334695D13F28D1F00ACD8BE = {
 			isa = PBXGroup;
 			children = (
+				834D0EF513F35ED000ECDAE7 /* libsqlite3.dylib */,
 				8334697213F28D1F00ACD8BE /* HackerNewsReader */,
 				8334696B13F28D1F00ACD8BE /* Frameworks */,
 				8334696913F28D1F00ACD8BE /* Products */,
@@ -113,6 +131,8 @@
 		8334697213F28D1F00ACD8BE /* HackerNewsReader */ = {
 			isa = PBXGroup;
 			children = (
+				834D0EF713F35F0800ECDAE7 /* HnDb */,
+				834D0EE813F35EB900ECDAE7 /* fmdb */,
 				8334699813F2911700ACD8BE /* Assets */,
 				8334699213F2900900ACD8BE /* Tabs */,
 				8334697B13F28D1F00ACD8BE /* HackerNewsReaderAppDelegate.h */,
@@ -168,6 +188,30 @@
 				833469AE13F2942200ACD8BE /* fire@2x.png */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		834D0EE813F35EB900ECDAE7 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				834D0EE913F35EB900ECDAE7 /* FMDatabase.h */,
+				834D0EEA13F35EB900ECDAE7 /* FMDatabase.m */,
+				834D0EEB13F35EB900ECDAE7 /* FMDatabaseAdditions.h */,
+				834D0EEC13F35EB900ECDAE7 /* FMDatabaseAdditions.m */,
+				834D0EED13F35EB900ECDAE7 /* FMResultSet.h */,
+				834D0EEE13F35EB900ECDAE7 /* FMResultSet.m */,
+				834D0EEF13F35EB900ECDAE7 /* LICENSE.txt */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		834D0EF713F35F0800ECDAE7 /* HnDb */ = {
+			isa = PBXGroup;
+			children = (
+				834D0EF813F35F1800ECDAE7 /* HnDb.h */,
+				834D0EF913F35F1800ECDAE7 /* HnDb.m */,
+			);
+			name = HnDb;
+			path = ../../../Temp/HnDb;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +275,7 @@
 				833469B013F2942200ACD8BE /* fire@2x.png in Resources */,
 				833469B513F2945300ACD8BE /* Best.xib in Resources */,
 				833469BA13F350F900ACD8BE /* Comments.xib in Resources */,
+				834D0EF313F35EB900ECDAE7 /* LICENSE.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +293,10 @@
 				833469A713F293C000ACD8BE /* Classic.m in Sources */,
 				833469B413F2945300ACD8BE /* Best.m in Sources */,
 				833469B913F350F900ACD8BE /* Comments.m in Sources */,
+				834D0EF013F35EB900ECDAE7 /* FMDatabase.m in Sources */,
+				834D0EF113F35EB900ECDAE7 /* FMDatabaseAdditions.m in Sources */,
+				834D0EF213F35EB900ECDAE7 /* FMResultSet.m in Sources */,
+				834D0EFA13F35F1800ECDAE7 /* HnDb.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +401,7 @@
 				8334699113F28D1F00ACD8BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
