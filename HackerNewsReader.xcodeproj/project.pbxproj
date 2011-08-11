@@ -166,12 +166,6 @@
 		8334695D13F28D1F00ACD8BE = {
 			isa = PBXGroup;
 			children = (
-				837E556813F3DB5C007DC47F /* libz.dylib */,
-				837E556713F3DB54007DC47F /* CoreGraphics.framework */,
-				837E556513F3DB4C007DC47F /* MobileCoreServices.framework */,
-				837E556313F3DB46007DC47F /* SystemConfiguration.framework */,
-				837E556013F3DB3F007DC47F /* CFNetwork.framework */,
-				834D0EF513F35ED000ECDAE7 /* libsqlite3.dylib */,
 				8334697213F28D1F00ACD8BE /* HackerNewsReader */,
 				8334696B13F28D1F00ACD8BE /* Frameworks */,
 				8334696913F28D1F00ACD8BE /* Products */,
@@ -189,6 +183,12 @@
 		8334696B13F28D1F00ACD8BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				837E556813F3DB5C007DC47F /* libz.dylib */,
+				837E556713F3DB54007DC47F /* CoreGraphics.framework */,
+				837E556513F3DB4C007DC47F /* MobileCoreServices.framework */,
+				837E556313F3DB46007DC47F /* SystemConfiguration.framework */,
+				837E556013F3DB3F007DC47F /* CFNetwork.framework */,
+				834D0EF513F35ED000ECDAE7 /* libsqlite3.dylib */,
 				8334696C13F28D1F00ACD8BE /* UIKit.framework */,
 				8334696E13F28D1F00ACD8BE /* Foundation.framework */,
 				8334697013F28D1F00ACD8BE /* CoreGraphics.framework */,
