@@ -7,15 +7,18 @@
 //
 
 #import "Home.h"
-
+#import "HnDb.h"
+#import "HnScraper.h"
 
 @implementation Home
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        UIBarButtonItem* refreshBn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshBnTapped)];
+        self.navigationItem.rightBarButtonItem = refreshBn;
+        [refreshBn release];
     }
     return self;
 }
@@ -31,6 +34,16 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+}
+
+#pragma mark - Refresh data
+
+- (void)refreshBnTapped {
+    [HnScraper doMainPageScrapeOf:@"http://news.ycombinator.com/" storeAsPage:@"home" complete:^(BOOL success) {
+        if (success) {
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 #pragma mark - View lifecycle
@@ -81,18 +94,19 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    FMResultSet *s = [[HnDb instance] executeQuery:@"select count(*) from pages where name=?" withArgumentsInArray:$arr(@"home")];
+    if ([s next]) {
+        return [s intForColumnIndex:0];
+    }
     return 0;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+- (NSString*)pluralComments:(int)comments {
+    if (comments==0) return @"no comments";
+    if (comments==1) return @"1 comment";
+    return $str(@"%d comments", comments);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -101,11 +115,19 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    // Configure the cell...
-    
+    NSString* sql = @"select a.* from pages p, articles a where p.article_id = a.id and p.position=?";
+    FMResultSet *s = [[HnDb instance] executeQuery:sql withArgumentsInArray:$arr($int(indexPath.row+1))];
+    if ([s next]) {
+        cell.textLabel.text = [s stringForColumn:@"title"];
+        cell.detailTextLabel.text = $str(@"%d points, %@",
+                                         [s intForColumn:@"points"],
+                                         [self pluralComments:[s intForColumn:@"comments"]]);
+    }
+
     return cell;
 }
 

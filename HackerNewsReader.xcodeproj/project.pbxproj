@@ -36,6 +36,7 @@
 		834D0EF213F35EB900ECDAE7 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 834D0EEE13F35EB900ECDAE7 /* FMResultSet.m */; };
 		834D0EF313F35EB900ECDAE7 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 834D0EEF13F35EB900ECDAE7 /* LICENSE.txt */; };
 		834D0EF613F35ED000ECDAE7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 834D0EF513F35ED000ECDAE7 /* libsqlite3.dylib */; };
+		835B9DA713F3EB0D00EDA41B /* HnScraper.m in Sources */ = {isa = PBXBuildFile; fileRef = 835B9DA613F3EB0D00EDA41B /* HnScraper.m */; };
 		836FBD8113F37C1900AFC570 /* ConciseKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 836FBD7813F37C1900AFC570 /* ConciseKit.m */; };
 		836FBD8213F37C1900AFC570 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 836FBD7913F37C1900AFC570 /* LICENSE */; };
 		836FBD8313F37C1900AFC570 /* NSArray+ConciseKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 836FBD7B13F37C1900AFC570 /* NSArray+ConciseKit.m */; };
@@ -56,6 +57,12 @@
 		837E558813F3DBA1007DC47F /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E557D13F3DBA1007DC47F /* ASINetworkQueue.m */; };
 		837E558913F3DBA1007DC47F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E558013F3DBA1007DC47F /* Reachability.m */; };
 		83F1A88B13F37A36003E1EC9 /* HnDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F1A88A13F37A36003E1EC9 /* HnDb.m */; };
+		83F62D0113F3E5F000A322E6 /* speechmedia.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F62CFF13F3E5F000A322E6 /* speechmedia.png */; };
+		83F62D0213F3E5F000A322E6 /* speechmedia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F62D0013F3E5F000A322E6 /* speechmedia@2x.png */; };
+		83F62D0513F3E65E00A322E6 /* newspaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F62D0313F3E65E00A322E6 /* newspaper.png */; };
+		83F62D0613F3E65E00A322E6 /* newspaper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F62D0413F3E65E00A322E6 /* newspaper@2x.png */; };
+		83F62D0913F3E6DB00A322E6 /* briefcase.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F62D0713F3E6DB00A322E6 /* briefcase.png */; };
+		83F62D0A13F3E6DB00A322E6 /* briefcase@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F62D0813F3E6DB00A322E6 /* briefcase@2X.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +107,8 @@
 		834D0EEE13F35EB900ECDAE7 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		834D0EEF13F35EB900ECDAE7 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		834D0EF513F35ED000ECDAE7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		835B9DA513F3EB0D00EDA41B /* HnScraper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HnScraper.h; sourceTree = "<group>"; };
+		835B9DA613F3EB0D00EDA41B /* HnScraper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HnScraper.m; sourceTree = "<group>"; };
 		836FBD7413F37C1900AFC570 /* CKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKAdditions.h; sourceTree = "<group>"; };
 		836FBD7513F37C1900AFC570 /* CKMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKMacros.h; sourceTree = "<group>"; };
 		836FBD7613F37C1900AFC570 /* CKSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSingleton.h; sourceTree = "<group>"; };
@@ -142,6 +151,12 @@
 		837E558013F3DBA1007DC47F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		83F1A88913F37A36003E1EC9 /* HnDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HnDb.h; sourceTree = "<group>"; };
 		83F1A88A13F37A36003E1EC9 /* HnDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HnDb.m; sourceTree = "<group>"; };
+		83F62CFF13F3E5F000A322E6 /* speechmedia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speechmedia.png; sourceTree = "<group>"; };
+		83F62D0013F3E5F000A322E6 /* speechmedia@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speechmedia@2x.png"; sourceTree = "<group>"; };
+		83F62D0313F3E65E00A322E6 /* newspaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newspaper.png; sourceTree = "<group>"; };
+		83F62D0413F3E65E00A322E6 /* newspaper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "newspaper@2x.png"; sourceTree = "<group>"; };
+		83F62D0713F3E6DB00A322E6 /* briefcase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = briefcase.png; sourceTree = "<group>"; };
+		83F62D0813F3E6DB00A322E6 /* briefcase@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "briefcase@2X.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +266,12 @@
 		8334699813F2911700ACD8BE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				83F62D0713F3E6DB00A322E6 /* briefcase.png */,
+				83F62D0813F3E6DB00A322E6 /* briefcase@2X.png */,
+				83F62D0313F3E65E00A322E6 /* newspaper.png */,
+				83F62D0413F3E65E00A322E6 /* newspaper@2x.png */,
+				83F62CFF13F3E5F000A322E6 /* speechmedia.png */,
+				83F62D0013F3E5F000A322E6 /* speechmedia@2x.png */,
 				8334699913F2911700ACD8BE /* house.png */,
 				8334699A13F2911700ACD8BE /* house@2x.png */,
 				833469A913F293C800ACD8BE /* alarm.png */,
@@ -327,6 +348,8 @@
 		837E558A13F3DBF5007DC47F /* Scraper */ = {
 			isa = PBXGroup;
 			children = (
+				835B9DA513F3EB0D00EDA41B /* HnScraper.h */,
+				835B9DA613F3EB0D00EDA41B /* HnScraper.m */,
 			);
 			path = Scraper;
 			sourceTree = "<group>";
@@ -404,6 +427,12 @@
 				834D0EF313F35EB900ECDAE7 /* LICENSE.txt in Resources */,
 				836FBD8213F37C1900AFC570 /* LICENSE in Resources */,
 				836FBD8613F37C1900AFC570 /* README.markdown in Resources */,
+				83F62D0113F3E5F000A322E6 /* speechmedia.png in Resources */,
+				83F62D0213F3E5F000A322E6 /* speechmedia@2x.png in Resources */,
+				83F62D0513F3E65E00A322E6 /* newspaper.png in Resources */,
+				83F62D0613F3E65E00A322E6 /* newspaper@2x.png in Resources */,
+				83F62D0913F3E6DB00A322E6 /* briefcase.png in Resources */,
+				83F62D0A13F3E6DB00A322E6 /* briefcase@2X.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +467,7 @@
 				837E558713F3DBA1007DC47F /* ASIInputStream.m in Sources */,
 				837E558813F3DBA1007DC47F /* ASINetworkQueue.m in Sources */,
 				837E558913F3DBA1007DC47F /* Reachability.m in Sources */,
+				835B9DA713F3EB0D00EDA41B /* HnScraper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +534,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HackerNewsReader/HackerNewsReader-Prefix.pch";
 				INFOPLIST_FILE = "HackerNewsReader/HackerNewsReader-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -517,6 +548,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HackerNewsReader/HackerNewsReader-Prefix.pch";
 				INFOPLIST_FILE = "HackerNewsReader/HackerNewsReader-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

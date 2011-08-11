@@ -7,8 +7,6 @@
 //
 
 #import "HnDb.h"
-#import "FMDatabase.h"
-#import "FMDatabaseAdditions.h"
 #import "ConciseKit.h"
 
 @implementation HnDb
@@ -19,6 +17,8 @@ FMDatabase* _fmDbSingleton;
     if (!_fmDbSingleton) {
         NSString* filePath = [[$ documentPath] stringByAppendingPathComponent:@"HnDb.sqlite"];
         _fmDbSingleton = [[FMDatabase alloc] initWithPath:filePath];
+        _fmDbSingleton.logsErrors = YES;
+        [_fmDbSingleton open];
         
         if (![_fmDbSingleton tableExists:@"articles"]) {
             [_fmDbSingleton executeUpdate:@"create table articles (id int primary key, title text, host text, link text, points int, submitter text, age text, comments int)"];
