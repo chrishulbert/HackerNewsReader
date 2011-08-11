@@ -12,25 +12,21 @@
 
 @implementation HnDb
 
-@synthesize fmdb;
-
 // My dodgy singleton
-HnDb* _hnDbSingleton;
-+ (HnDb*)instance {
-    if (!_hnDbSingleton) {
-        _hnDbSingleton = [[HnDb alloc] init];
+FMDatabase* _fmDbSingleton;
++ (FMDatabase*)instance {
+    if (!_fmDbSingleton) {
+        NSString* filePath = [[$ documentPath] stringByAppendingPathComponent:@"HnDb.sqlite"];
+        _fmDbSingleton = [[FMDatabase alloc] initWithPath:filePath];
     }
-    return _hnDbSingleton;
+    return _fmDbSingleton;
 }
 
-- (id)init {
-    self = [super init];
-    if (self) {
-        [$ documentPath] => path to user's document directory
-        
-        fmdb = [[FMDatabase alloc] initWithPath:<#(NSString *)#>];
-    }
-    return self;
+// Close and save the database
++ (void)close {
+    [_fmDbSingleton close];
+    [_fmDbSingleton release];
+    _fmDbSingleton = nil;
 }
 
 @end

@@ -12,8 +12,7 @@
 
 @interface HnDb : NSObject
 
-@property(nonatomic, retain) FMDatabase* fmdb;
-
-+ (HnDb*)instance;
++ (FMDatabase*)instance;
++ (void)close;
 
 @end
