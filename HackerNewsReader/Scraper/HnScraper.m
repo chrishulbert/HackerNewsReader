@@ -158,7 +158,6 @@
 
 // Scrape one of the home pages
 + (void)doMainPageScrapeOf:(NSString*)url storeAsPage:(NSString*)page complete:(ScraperBlock)complete {
-    
     // The __block prevents the callback blocks retaining the request, which would cause a circular leak because the request also retains the completion blocks.
     __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:url]];
     request.timeOutSeconds = 20; // 60 is a bit long...
@@ -175,6 +174,74 @@
         complete(NO);
     }];
     [request startAsynchronous];
+}
+
+#define RngFrom(l) NSMakeRange(l, response.length-l)
+#define Search(a) rng=[response rangeOfString:a options:0 range:RngFrom(rng.location)]; if (rng.location == NSNotFound) break;
++ (void)parseAndStoreCommentPage:(NSString*)response storeAsArticle:(int)articleId {
+    
+    NSRange rng = [response rangeOfString:@"</textarea>"]; // Jump to the start of the comments in the page
+    if (rng.location == NSNotFound) return;
+
+    [[HnDb instance] beginTransaction];
+    [[HnDb instance] executeUpdate:@"delete from comments where article_id = ?" withArgumentsInArray:$arr($int(articleId))];
+
+    NSRegularExpression* removeTags = [NSRegularExpression regularExpressionWithPattern:@"<[^>]*>" options:0 error:nil];
+
+    int position=0;
+    while(YES) {
+        position++;
+        
+        // Find the spacer image to get the indent
+        Search(@"images/s.gif");
+        Search(@"width=");
+        rng.location += 6;
+        int indent = [[response substringWithRange:NSMakeRange(rng.location, 10)] intValue];
+        
+        // Get the user id
+        Search(@"user?id=");
+        rng.location += 8;
+        NSRange rngUser = [response rangeOfString:@"\"" options:0 range:RngFrom(rng.location)];
+        if (rngUser.location == NSNotFound) break;
+        NSString *user = [response substringWithRange:NSMakeRange(rng.location, rngUser.location - rng.location)];
+        
+        // Get the actual comment
+        Search(@"<span class=\"comment\">");
+        rng.location += 22;
+        NSRange rngComment = [response rangeOfString:@"</span>" options:0 range:RngFrom(rng.location)];
+        if (rngComment.location == NSNotFound) break;
+        NSString *comment = [response substringWithRange:NSMakeRange(rng.location, rngComment.location - rng.location)];
+
+        comment = [comment stringByReplacingOccurrencesOfString:@"\r\n" withString:@" "];
+        comment = [comment stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+        comment = [comment stringByReplacingOccurrencesOfString:@"<p>" withString:@"\n"];
+        comment = [removeTags stringByReplacingMatchesInString:comment options:0 range:NSMakeRange(0, comment.length) withTemplate:@""];
+
+        [[HnDb instance] executeUpdate:@"insert into comments(article_id, position, indent, user, comment) values(?, ?, ?, ?, ?)" 
+                  withArgumentsInArray:$arr($int(articleId), $int(position), $int(indent), user, comment)];        
+    }        
+    
+    [[HnDb instance] commit];
+}
+
+// Scrape a comment page
++ (void)doCommentPageScrapeForArticle:(int)articleId complete:(ScraperBlock)complete {
+    // The __block prevents the callback blocks retaining the request, which would cause a circular leak because the request also retains the completion blocks.
+    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:$str(@"http://news.ycombinator.com/item?id=%d",articleId)]];
+    request.timeOutSeconds = 20; // 60 is a bit long...
+    [request setCompletionBlock:^{
+        NSString *responseString = [request responseString];
+        
+        // Parse and store it
+        [self parseAndStoreCommentPage:responseString storeAsArticle:articleId];
+        
+        // Tell the view that it completed
+        complete(YES);
+    }];
+    [request setFailedBlock:^{
+        complete(NO);
+    }];
+    [request startAsynchronous];    
 }
 
 @end

@@ -13,5 +13,6 @@ typedef void(^ScraperBlock)(BOOL success);
 @interface HnScraper : NSObject
 
 + (void)doMainPageScrapeOf:(NSString*)url storeAsPage:(NSString*)page complete:(ScraperBlock)complete;
++ (void)doCommentPageScrapeForArticle:(int)articleId complete:(ScraperBlock)complete;
 
 @end

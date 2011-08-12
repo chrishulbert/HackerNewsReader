@@ -26,6 +26,10 @@ FMDatabase* _fmDbSingleton;
         if (![_fmDbSingleton tableExists:@"pages"]) {
             [_fmDbSingleton executeUpdate:@"create table pages (id int primary key, name text, position int, article_id int)"];
         }
+        if (![_fmDbSingleton tableExists:@"comments"]) {
+            [_fmDbSingleton executeUpdate:@"create table comments (article_id int, position int, indent int, user text, comment text)"];
+        }
+        [_fmDbSingleton executeUpdate:@"create index if not exists comments_position on comments(article_id,position)"];
     }
     return _fmDbSingleton;
 }

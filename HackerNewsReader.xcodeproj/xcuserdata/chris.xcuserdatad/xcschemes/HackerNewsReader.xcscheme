@@ -15,7 +15,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8334696713F28D1F00ACD8BE"
                BuildableName = "HackerNewsReader.app"
-               BlueprintName = "HackerNewsReader"
+               BlueprintName = "HN Reader"
                ReferencedContainer = "container:HackerNewsReader.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,7 +42,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8334696713F28D1F00ACD8BE"
             BuildableName = "HackerNewsReader.app"
-            BlueprintName = "HackerNewsReader"
+            BlueprintName = "HN Reader"
             ReferencedContainer = "container:HackerNewsReader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,7 +61,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8334696713F28D1F00ACD8BE"
             BuildableName = "HackerNewsReader.app"
-            BlueprintName = "HackerNewsReader"
+            BlueprintName = "HN Reader"
             ReferencedContainer = "container:HackerNewsReader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

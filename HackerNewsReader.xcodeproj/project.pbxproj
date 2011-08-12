@@ -56,6 +56,11 @@
 		837E558713F3DBA1007DC47F /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E557B13F3DBA1007DC47F /* ASIInputStream.m */; };
 		837E558813F3DBA1007DC47F /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E557D13F3DBA1007DC47F /* ASINetworkQueue.m */; };
 		837E558913F3DBA1007DC47F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E558013F3DBA1007DC47F /* Reachability.m */; };
+		83D0632913F5320A000B8CC3 /* icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D0632813F5320A000B8CC3 /* icon-57.png */; };
+		83D0632C13F53211000B8CC3 /* icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D0632B13F53211000B8CC3 /* icon-114.png */; };
+		83D0632E13F53AC7000B8CC3 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D0632D13F53AC7000B8CC3 /* icon-72.png */; };
+		83D0633313F54533000B8CC3 /* ArticleComments.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D0633113F54533000B8CC3 /* ArticleComments.m */; };
+		83D0633413F54533000B8CC3 /* ArticleComments.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83D0633213F54533000B8CC3 /* ArticleComments.xib */; };
 		83F1A88B13F37A36003E1EC9 /* HnDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F1A88A13F37A36003E1EC9 /* HnDb.m */; };
 		83F62D0113F3E5F000A322E6 /* speechmedia.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F62CFF13F3E5F000A322E6 /* speechmedia.png */; };
 		83F62D0213F3E5F000A322E6 /* speechmedia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F62D0013F3E5F000A322E6 /* speechmedia@2x.png */; };
@@ -66,7 +71,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8334696813F28D1F00ACD8BE /* HackerNewsReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNewsReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8334696813F28D1F00ACD8BE /* HN Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HN Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8334696C13F28D1F00ACD8BE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8334696E13F28D1F00ACD8BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8334697013F28D1F00ACD8BE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -149,6 +154,12 @@
 		837E557E13F3DBA1007DC47F /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
 		837E557F13F3DBA1007DC47F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		837E558013F3DBA1007DC47F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		83D0632813F5320A000B8CC3 /* icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-57.png"; sourceTree = "<group>"; };
+		83D0632B13F53211000B8CC3 /* icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-114.png"; sourceTree = "<group>"; };
+		83D0632D13F53AC7000B8CC3 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
+		83D0633013F54533000B8CC3 /* ArticleComments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleComments.h; sourceTree = "<group>"; };
+		83D0633113F54533000B8CC3 /* ArticleComments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleComments.m; sourceTree = "<group>"; };
+		83D0633213F54533000B8CC3 /* ArticleComments.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleComments.xib; sourceTree = "<group>"; };
 		83F1A88913F37A36003E1EC9 /* HnDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HnDb.h; sourceTree = "<group>"; };
 		83F1A88A13F37A36003E1EC9 /* HnDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HnDb.m; sourceTree = "<group>"; };
 		83F62CFF13F3E5F000A322E6 /* speechmedia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speechmedia.png; sourceTree = "<group>"; };
@@ -181,6 +192,9 @@
 		8334695D13F28D1F00ACD8BE = {
 			isa = PBXGroup;
 			children = (
+				83D0632D13F53AC7000B8CC3 /* icon-72.png */,
+				83D0632B13F53211000B8CC3 /* icon-114.png */,
+				83D0632813F5320A000B8CC3 /* icon-57.png */,
 				8334697213F28D1F00ACD8BE /* HackerNewsReader */,
 				8334696B13F28D1F00ACD8BE /* Frameworks */,
 				8334696913F28D1F00ACD8BE /* Products */,
@@ -190,7 +204,7 @@
 		8334696913F28D1F00ACD8BE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8334696813F28D1F00ACD8BE /* HackerNewsReader.app */,
+				8334696813F28D1F00ACD8BE /* HN Reader.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,6 +235,7 @@
 				834D0EE813F35EB900ECDAE7 /* fmdb */,
 				8334699813F2911700ACD8BE /* Assets */,
 				8334699213F2900900ACD8BE /* Tabs */,
+				83D0632F13F54520000B8CC3 /* Views */,
 				8334697B13F28D1F00ACD8BE /* HackerNewsReaderAppDelegate.h */,
 				8334697C13F28D1F00ACD8BE /* HackerNewsReaderAppDelegate.m */,
 				8334697E13F28D1F00ACD8BE /* MainWindow.xib */,
@@ -354,6 +369,16 @@
 			path = Scraper;
 			sourceTree = "<group>";
 		};
+		83D0632F13F54520000B8CC3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				83D0633013F54533000B8CC3 /* ArticleComments.h */,
+				83D0633113F54533000B8CC3 /* ArticleComments.m */,
+				83D0633213F54533000B8CC3 /* ArticleComments.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		83F1A88813F37A36003E1EC9 /* HnDb */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,9 +391,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8334696713F28D1F00ACD8BE /* HackerNewsReader */ = {
+		8334696713F28D1F00ACD8BE /* HN Reader */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8334698F13F28D1F00ACD8BE /* Build configuration list for PBXNativeTarget "HackerNewsReader" */;
+			buildConfigurationList = 8334698F13F28D1F00ACD8BE /* Build configuration list for PBXNativeTarget "HN Reader" */;
 			buildPhases = (
 				8334696413F28D1F00ACD8BE /* Sources */,
 				8334696513F28D1F00ACD8BE /* Frameworks */,
@@ -378,9 +403,9 @@
 			);
 			dependencies = (
 			);
-			name = HackerNewsReader;
+			name = "HN Reader";
 			productName = HackerNewsReader;
-			productReference = 8334696813F28D1F00ACD8BE /* HackerNewsReader.app */;
+			productReference = 8334696813F28D1F00ACD8BE /* HN Reader.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -400,7 +425,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8334696713F28D1F00ACD8BE /* HackerNewsReader */,
+				8334696713F28D1F00ACD8BE /* HN Reader */,
 			);
 		};
 /* End PBXProject section */
@@ -433,6 +458,10 @@
 				83F62D0613F3E65E00A322E6 /* newspaper@2x.png in Resources */,
 				83F62D0913F3E6DB00A322E6 /* briefcase.png in Resources */,
 				83F62D0A13F3E6DB00A322E6 /* briefcase@2X.png in Resources */,
+				83D0632913F5320A000B8CC3 /* icon-57.png in Resources */,
+				83D0632C13F53211000B8CC3 /* icon-114.png in Resources */,
+				83D0632E13F53AC7000B8CC3 /* icon-72.png in Resources */,
+				83D0633413F54533000B8CC3 /* ArticleComments.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +497,7 @@
 				837E558813F3DBA1007DC47F /* ASINetworkQueue.m in Sources */,
 				837E558913F3DBA1007DC47F /* Reachability.m in Sources */,
 				835B9DA713F3EB0D00EDA41B /* HnScraper.m in Sources */,
+				83D0633313F54533000B8CC3 /* ArticleComments.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +566,7 @@
 				INFOPLIST_FILE = "HackerNewsReader/HackerNewsReader-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -550,6 +581,7 @@
 				INFOPLIST_FILE = "HackerNewsReader/HackerNewsReader-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -567,7 +599,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8334698F13F28D1F00ACD8BE /* Build configuration list for PBXNativeTarget "HackerNewsReader" */ = {
+		8334698F13F28D1F00ACD8BE /* Build configuration list for PBXNativeTarget "HN Reader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8334699013F28D1F00ACD8BE /* Debug */,
