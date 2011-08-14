@@ -20,15 +20,12 @@
 		8334699C13F2911700ACD8BE /* house@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8334699A13F2911700ACD8BE /* house@2x.png */; };
 		8334699E13F2915400ACD8BE /* Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8334699D13F2915400ACD8BE /* Readme.txt */; };
 		833469A213F2935100ACD8BE /* NewArticles.m in Sources */ = {isa = PBXBuildFile; fileRef = 833469A013F2935100ACD8BE /* NewArticles.m */; };
-		833469A313F2935100ACD8BE /* NewArticles.xib in Resources */ = {isa = PBXBuildFile; fileRef = 833469A113F2935100ACD8BE /* NewArticles.xib */; };
 		833469A713F293C000ACD8BE /* Classic.m in Sources */ = {isa = PBXBuildFile; fileRef = 833469A513F293C000ACD8BE /* Classic.m */; };
-		833469A813F293C000ACD8BE /* Classic.xib in Resources */ = {isa = PBXBuildFile; fileRef = 833469A613F293C000ACD8BE /* Classic.xib */; };
 		833469AB13F293C800ACD8BE /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 833469A913F293C800ACD8BE /* alarm.png */; };
 		833469AC13F293C800ACD8BE /* alarm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 833469AA13F293C800ACD8BE /* alarm@2x.png */; };
 		833469AF13F2942200ACD8BE /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 833469AD13F2942200ACD8BE /* fire.png */; };
 		833469B013F2942200ACD8BE /* fire@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 833469AE13F2942200ACD8BE /* fire@2x.png */; };
 		833469B413F2945300ACD8BE /* Best.m in Sources */ = {isa = PBXBuildFile; fileRef = 833469B213F2945300ACD8BE /* Best.m */; };
-		833469B513F2945300ACD8BE /* Best.xib in Resources */ = {isa = PBXBuildFile; fileRef = 833469B313F2945300ACD8BE /* Best.xib */; };
 		833469B913F350F900ACD8BE /* Comments.m in Sources */ = {isa = PBXBuildFile; fileRef = 833469B713F350F900ACD8BE /* Comments.m */; };
 		833469BA13F350F900ACD8BE /* Comments.xib in Resources */ = {isa = PBXBuildFile; fileRef = 833469B813F350F900ACD8BE /* Comments.xib */; };
 		834D0EF013F35EB900ECDAE7 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 834D0EEA13F35EB900ECDAE7 /* FMDatabase.m */; };
@@ -90,17 +87,14 @@
 		8334699D13F2915400ACD8BE /* Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.txt; sourceTree = "<group>"; };
 		8334699F13F2935100ACD8BE /* NewArticles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewArticles.h; sourceTree = "<group>"; };
 		833469A013F2935100ACD8BE /* NewArticles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewArticles.m; sourceTree = "<group>"; };
-		833469A113F2935100ACD8BE /* NewArticles.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewArticles.xib; sourceTree = "<group>"; };
 		833469A413F293C000ACD8BE /* Classic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Classic.h; sourceTree = "<group>"; };
 		833469A513F293C000ACD8BE /* Classic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Classic.m; sourceTree = "<group>"; };
-		833469A613F293C000ACD8BE /* Classic.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Classic.xib; sourceTree = "<group>"; };
 		833469A913F293C800ACD8BE /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
 		833469AA13F293C800ACD8BE /* alarm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alarm@2x.png"; sourceTree = "<group>"; };
 		833469AD13F2942200ACD8BE /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
 		833469AE13F2942200ACD8BE /* fire@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fire@2x.png"; sourceTree = "<group>"; };
 		833469B113F2945300ACD8BE /* Best.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Best.h; sourceTree = "<group>"; };
 		833469B213F2945300ACD8BE /* Best.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Best.m; sourceTree = "<group>"; };
-		833469B313F2945300ACD8BE /* Best.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Best.xib; sourceTree = "<group>"; };
 		833469B613F350F900ACD8BE /* Comments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comments.h; sourceTree = "<group>"; };
 		833469B713F350F900ACD8BE /* Comments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comments.m; sourceTree = "<group>"; };
 		833469B813F350F900ACD8BE /* Comments.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Comments.xib; sourceTree = "<group>"; };
@@ -264,13 +258,10 @@
 				8334699513F2903200ACD8BE /* Home.xib */,
 				8334699F13F2935100ACD8BE /* NewArticles.h */,
 				833469A013F2935100ACD8BE /* NewArticles.m */,
-				833469A113F2935100ACD8BE /* NewArticles.xib */,
 				833469A413F293C000ACD8BE /* Classic.h */,
 				833469A513F293C000ACD8BE /* Classic.m */,
-				833469A613F293C000ACD8BE /* Classic.xib */,
 				833469B113F2945300ACD8BE /* Best.h */,
 				833469B213F2945300ACD8BE /* Best.m */,
-				833469B313F2945300ACD8BE /* Best.xib */,
 				833469B613F350F900ACD8BE /* Comments.h */,
 				833469B713F350F900ACD8BE /* Comments.m */,
 				833469B813F350F900ACD8BE /* Comments.xib */,
@@ -441,13 +432,10 @@
 				8334699B13F2911700ACD8BE /* house.png in Resources */,
 				8334699C13F2911700ACD8BE /* house@2x.png in Resources */,
 				8334699E13F2915400ACD8BE /* Readme.txt in Resources */,
-				833469A313F2935100ACD8BE /* NewArticles.xib in Resources */,
-				833469A813F293C000ACD8BE /* Classic.xib in Resources */,
 				833469AB13F293C800ACD8BE /* alarm.png in Resources */,
 				833469AC13F293C800ACD8BE /* alarm@2x.png in Resources */,
 				833469AF13F2942200ACD8BE /* fire.png in Resources */,
 				833469B013F2942200ACD8BE /* fire@2x.png in Resources */,
-				833469B513F2945300ACD8BE /* Best.xib in Resources */,
 				833469BA13F350F900ACD8BE /* Comments.xib in Resources */,
 				834D0EF313F35EB900ECDAE7 /* LICENSE.txt in Resources */,
 				836FBD8213F37C1900AFC570 /* LICENSE in Resources */,
