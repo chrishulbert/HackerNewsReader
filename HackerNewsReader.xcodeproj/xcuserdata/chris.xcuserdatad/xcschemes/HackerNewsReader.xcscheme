@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8334696713F28D1F00ACD8BE"
-               BuildableName = "HackerNewsReader.app"
+               BuildableName = "HN Reader.app"
                BlueprintName = "HN Reader"
                ReferencedContainer = "container:HackerNewsReader.xcodeproj">
             </BuildableReference>
@@ -41,7 +41,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8334696713F28D1F00ACD8BE"
-            BuildableName = "HackerNewsReader.app"
+            BuildableName = "HN Reader.app"
             BlueprintName = "HN Reader"
             ReferencedContainer = "container:HackerNewsReader.xcodeproj">
          </BuildableReference>
@@ -60,7 +60,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8334696713F28D1F00ACD8BE"
-            BuildableName = "HackerNewsReader.app"
+            BuildableName = "HN Reader.app"
             BlueprintName = "HN Reader"
             ReferencedContainer = "container:HackerNewsReader.xcodeproj">
          </BuildableReference>

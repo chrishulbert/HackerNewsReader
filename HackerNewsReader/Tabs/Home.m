@@ -37,12 +37,35 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+#pragma mark - Activity helper
+
+- (void)showActivity {
+    UIActivityIndicatorView* act = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    [act startAnimating];
+    int gap = (self.navigationController.navigationBar.frame.size.height - act.frame.size.height) / 2;
+    act.frame = CGRectOffset(act.frame, self.navigationController.navigationBar.frame.size.width-41-gap-act.frame.size.width, gap);
+    [self.navigationController.navigationBar addSubview:act];
+    [act release];
+}
+
+- (void)hideActivity {
+    for (UIView* view in self.navigationController.navigationBar.subviews) {
+        if ([view isKindOfClass:[UIActivityIndicatorView class]]) {
+            [view removeFromSuperview];
+        }
+    }
+}
+
 #pragma mark - Refresh data
 
 - (void)refreshBnTapped {
+    [self showActivity];
     [HnScraper doMainPageScrapeOf:@"http://news.ycombinator.com/" storeAsPage:@"home" complete:^(BOOL success) {
+        [self hideActivity];
         if (success) {
             [self.tableView reloadData];
+        } else {
+            [[[[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not connect to server" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil] autorelease] show];
         }
     }];
 }
@@ -87,10 +110,8 @@
     [super viewDidDisappear:animated];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return YES;
 }
 
 #pragma mark - Table view data source
@@ -138,8 +159,9 @@
     FMResultSet *s = [[HnDb instance] executeQuery:sql withArgumentsInArray:$arr($int(indexPath.row+1), @"home")];
     if ([s next]) {
         NSString *title = [s stringForColumn:@"title"];
+        int textWid = [[UIDevice currentDevice] userInterfaceIdiom]== UIUserInterfaceIdiomPhone ? 280 : 728;
         CGSize idealSize = [title sizeWithFont:[UIFont boldSystemFontOfSize:18] 
-                               constrainedToSize:CGSizeMake(280, 900) 
+                               constrainedToSize:CGSizeMake(textWid, 900) 
                                    lineBreakMode:UILineBreakModeWordWrap];
         return idealSize.height+22;   
     }

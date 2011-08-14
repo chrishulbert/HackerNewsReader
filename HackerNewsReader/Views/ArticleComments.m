@@ -38,12 +38,35 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+#pragma mark - Activity helper
+
+- (void)showActivity {
+    UIActivityIndicatorView* act = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    [act startAnimating];
+    int gap = (self.navigationController.navigationBar.frame.size.height - act.frame.size.height) / 2;
+    act.frame = CGRectOffset(act.frame, self.navigationController.navigationBar.frame.size.width-41-gap-act.frame.size.width, gap);
+    [self.navigationController.navigationBar addSubview:act];
+    [act release];
+}
+
+- (void)hideActivity {
+    for (UIView* view in self.navigationController.navigationBar.subviews) {
+        if ([view isKindOfClass:[UIActivityIndicatorView class]]) {
+            [view removeFromSuperview];
+        }
+    }
+}
+
 #pragma mark - Refresh data
 
 - (void)refreshBnTapped {
+    [self showActivity];
     [HnScraper doCommentPageScrapeForArticle:self.articleId complete:^(BOOL success) {
+        [self hideActivity];
         if (success) {
             [self.tableView reloadData];
+        } else {
+            [[[[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not connect to server" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil] autorelease] show];
         }
     }];
 }
@@ -96,10 +119,8 @@
     [super viewDidDisappear:animated];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return YES;
 }
 
 #pragma mark - Table view data source
@@ -127,6 +148,7 @@
     if ([s next]) {
         cell.textLabel.text = [s stringForColumn:@"comment"];
         cell.textLabel.numberOfLines = 0;
+        cell.textLabel.font = [UIFont systemFontOfSize:18];
         cell.detailTextLabel.text = [s stringForColumn:@"user"];
     }
     return cell;
@@ -137,8 +159,9 @@
     FMResultSet *s = [[HnDb instance] executeQuery:sql withArgumentsInArray:$arr($int(self.articleId), $int(indexPath.row+1))];
     if ([s next]) {
         NSString *comment = [s stringForColumn:@"comment"];
-        CGSize idealSize = [comment sizeWithFont:[UIFont boldSystemFontOfSize:18] 
-                               constrainedToSize:CGSizeMake(300, 900) 
+        int wid = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone ? 300 : 748;
+        CGSize idealSize = [comment sizeWithFont:[UIFont systemFontOfSize:18] 
+                               constrainedToSize:CGSizeMake(wid, 900) 
                                    lineBreakMode:UILineBreakModeWordWrap];
         return idealSize.height+22;
     }
