@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Home.h"
 
-
-@interface Classic : UITableViewController {
-    
-}
+@interface Classic : Home
 
 @end

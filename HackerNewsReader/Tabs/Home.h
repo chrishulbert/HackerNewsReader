@@ -13,4 +13,8 @@
     
 }
 
+- (NSString*)baseUrl;
+- (NSString*)basePage;
+- (NSString*)baseTitle;
+
 @end

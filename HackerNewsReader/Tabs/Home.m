@@ -17,9 +17,12 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        // Make the refresh button
         UIBarButtonItem* refreshBn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshBnTapped)];
         self.navigationItem.rightBarButtonItem = refreshBn;
         [refreshBn release];
+        
+        self.title = self.baseTitle;
     }
     return self;
 }
@@ -35,6 +38,20 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+}
+
+#pragma mark - Customisable for subclasses
+
+- (NSString*)baseUrl {
+    return @"http://news.ycombinator.com/";
+}
+
+- (NSString*)basePage {
+    return @"home";
+}
+
+- (NSString*)baseTitle {
+    return @"Hacker News";
 }
 
 #pragma mark - Activity helper
@@ -60,7 +77,7 @@
 
 - (void)refreshBnTapped {
     [self showActivity];
-    [HnScraper doMainPageScrapeOf:@"http://news.ycombinator.com/" storeAsPage:@"home" complete:^(BOOL success) {
+    [HnScraper doMainPageScrapeOf:self.baseUrl storeAsPage:self.basePage complete:^(BOOL success) {
         [self hideActivity];
         if (success) {
             [self.tableView reloadData];
@@ -75,6 +92,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:127/256.0 green:50/256.0 blue:0 alpha:1];
+
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -118,7 +138,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    FMResultSet *s = [[HnDb instance] executeQuery:@"select count(*) from pages where name=?" withArgumentsInArray:$arr(@"home")];
+    FMResultSet *s = [[HnDb instance] executeQuery:@"select count(*) from pages where name=?" withArgumentsInArray:$arr(self.basePage)];
     if ([s next]) {
         return [s intForColumnIndex:0];
     }
@@ -142,7 +162,7 @@
     }
     
     NSString* sql = @"select a.* from pages p, articles a where p.article_id = a.id and p.position=? and p.name=?";
-    FMResultSet *s = [[HnDb instance] executeQuery:sql withArgumentsInArray:$arr($int(indexPath.row+1), @"home")];
+    FMResultSet *s = [[HnDb instance] executeQuery:sql withArgumentsInArray:$arr($int(indexPath.row+1), self.basePage)];
     if ([s next]) {
         cell.textLabel.text = [s stringForColumn:@"title"];
         cell.textLabel.numberOfLines = 0;
@@ -156,7 +176,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString* sql = @"select a.* from pages p, articles a where p.article_id = a.id and p.position=? and p.name=?";
-    FMResultSet *s = [[HnDb instance] executeQuery:sql withArgumentsInArray:$arr($int(indexPath.row+1), @"home")];
+    FMResultSet *s = [[HnDb instance] executeQuery:sql withArgumentsInArray:$arr($int(indexPath.row+1), self.basePage)];
     if ([s next]) {
         NSString *title = [s stringForColumn:@"title"];
         int textWid = [[UIDevice currentDevice] userInterfaceIdiom]== UIUserInterfaceIdiomPhone ? 280 : 728;
@@ -173,7 +193,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString* sql = @"select a.id from pages p, articles a where p.article_id = a.id and p.position=? and p.name=?";
-    FMResultSet *s = [[HnDb instance] executeQuery:sql withArgumentsInArray:$arr($int(indexPath.row+1), @"home")];
+    FMResultSet *s = [[HnDb instance] executeQuery:sql withArgumentsInArray:$arr($int(indexPath.row+1), self.basePage)];
     if ([s next]) {
         int articleId = [s intForColumnIndex:0];
         
