@@ -18,7 +18,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        UIBarButtonItem* refreshBn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshBnTapped)];
+        UIBarButtonItem* refreshBn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActions)];
         self.navigationItem.rightBarButtonItem = refreshBn;
         [refreshBn release];
     }
@@ -45,12 +45,12 @@
     [act startAnimating];
     int gap = (self.navigationController.navigationBar.frame.size.height - act.frame.size.height) / 2;
     act.frame = CGRectOffset(act.frame, self.navigationController.navigationBar.frame.size.width-41-gap-act.frame.size.width, gap);
-    [self.navigationController.navigationBar addSubview:act];
+    [self.view addSubview:act];
     [act release];
 }
 
 - (void)hideActivity {
-    for (UIView* view in self.navigationController.navigationBar.subviews) {
+    for (UIView* view in self.view.subviews) {
         if ([view isKindOfClass:[UIActivityIndicatorView class]]) {
             [view removeFromSuperview];
         }
@@ -69,6 +69,34 @@
             [[[[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not connect to server" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil] autorelease] show];
         }
     }];
+}
+
+#pragma mark - Show options
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == actionSheet.firstOtherButtonIndex) {
+        [self refreshBnTapped];
+    }
+    if (buttonIndex == actionSheet.firstOtherButtonIndex + 1) {
+        // Open HN page
+        NSURL *url = [NSURL URLWithString:$str(@"http://news.ycombinator.com/item?id=%d", self.articleId)];
+        [[UIApplication sharedApplication] openURL:url];
+    }
+    if (buttonIndex == actionSheet.firstOtherButtonIndex + 2) {
+        // Open link
+        FMResultSet *s = [[HnDb instance] executeQuery:@"select link from articles where id=?" withArgumentsInArray:$arr($int(self.articleId))];
+        if ([s next]) {
+            NSURL *hn = [NSURL URLWithString:@"http://news.ycombinator.com/"];
+            NSURL *url = [NSURL URLWithString:[s stringForColumnIndex:0] relativeToURL:hn];
+            [[UIApplication sharedApplication] openURL:url];
+        }
+    }
+}
+
+- (void)showActions {
+    UIActionSheet* actions = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Refresh", @"Open comments in Safari", @"Open link in Safari", nil];
+    [actions showFromTabBar:self.tabBarController.tabBar];
+    [actions release];
 }
 
 #pragma mark - View lifecycle
@@ -159,9 +187,9 @@
     FMResultSet *s = [[HnDb instance] executeQuery:sql withArgumentsInArray:$arr($int(self.articleId), $int(indexPath.row+1))];
     if ([s next]) {
         NSString *comment = [s stringForColumn:@"comment"];
-        int wid = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone ? 300 : 748;
+        int textWid = self.view.frame.size.width - 20;
         CGSize idealSize = [comment sizeWithFont:[UIFont systemFontOfSize:18] 
-                               constrainedToSize:CGSizeMake(wid, 900) 
+                               constrainedToSize:CGSizeMake(textWid, 900) 
                                    lineBreakMode:UILineBreakModeWordWrap];
         return idealSize.height+22;
     }

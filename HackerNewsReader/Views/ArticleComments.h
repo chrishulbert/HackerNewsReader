@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ArticleComments : UITableViewController {
+@interface ArticleComments : UITableViewController <UIActionSheetDelegate> {
     
 }
 

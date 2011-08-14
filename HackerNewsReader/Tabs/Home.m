@@ -94,6 +94,7 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:127/256.0 green:50/256.0 blue:0 alpha:1];
+    self.navigationController.navigationBar.translucent = YES;
 
 
     // Uncomment the following line to preserve selection between presentations.
@@ -112,6 +113,22 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    // Figure out how long since it was last loaded, if >1hour ago, try to load it
+    // TODO only load automatically if you're on wifi
+    
+    // Return the number of rows in the section.
+    FMResultSet *s = [[HnDb instance] executeQuery:@"select loaded from pages_loaded where page=?" withArgumentsInArray:$arr(self.basePage)];
+    if ([s next]) {
+        NSDate* lastLoad = [s dateForColumnIndex:0];
+        if (lastLoad.timeIntervalSinceReferenceDate < [[NSDate date] timeIntervalSinceReferenceDate]-60*60) {
+            // Loaded more than an hour ago
+            [self refreshBnTapped];            
+        }
+    } else {
+        // Not loaded yet at all
+        [self refreshBnTapped];
+    }
+
     [super viewWillAppear:animated];
 }
 
@@ -166,9 +183,10 @@
     if ([s next]) {
         cell.textLabel.text = [s stringForColumn:@"title"];
         cell.textLabel.numberOfLines = 0;
-        cell.detailTextLabel.text = $str(@"%d points, %@",
+        cell.detailTextLabel.text = $str(@"%d points, %@, %@",
                                          [s intForColumn:@"points"],
-                                         [self pluralComments:[s intForColumn:@"comments"]]);
+                                         [self pluralComments:[s intForColumn:@"comments"]],
+                                         [s stringForColumn:@"age"]);
     }
 
     return cell;
@@ -179,7 +197,7 @@
     FMResultSet *s = [[HnDb instance] executeQuery:sql withArgumentsInArray:$arr($int(indexPath.row+1), self.basePage)];
     if ([s next]) {
         NSString *title = [s stringForColumn:@"title"];
-        int textWid = [[UIDevice currentDevice] userInterfaceIdiom]== UIUserInterfaceIdiomPhone ? 280 : 728;
+        int textWid = self.view.frame.size.width - 40;
         CGSize idealSize = [title sizeWithFont:[UIFont boldSystemFontOfSize:18] 
                                constrainedToSize:CGSizeMake(textWid, 900) 
                                    lineBreakMode:UILineBreakModeWordWrap];

@@ -52,20 +52,22 @@
         if (rng.location == NSNotFound) break;
         NSString *title = [response substringToIndex:rng.location];
 
-        // Find the 'comhead'
-        rng = [response rangeOfString:@"<span class=\"comhead\">"];
-        if (rng.location == NSNotFound) break;
-        response = [response substringFromIndex:rng.location+22];
-        
-        // Find the '('
-        rng = [response rangeOfString:@"("];
-        if (rng.location == NSNotFound) break;
-        response = [response substringFromIndex:rng.location+1];
-        
-        // Find the ')'
-        rng = [response rangeOfString:@")"];
-        if (rng.location == NSNotFound) break;
-        NSString* host = [response substringToIndex:rng.location];
+        // Commented out because the ask-hn type ones don't have comhead
+//        // Find the 'comhead'
+//        rng = [response rangeOfString:@"<span class=\"comhead\">"];
+//        if (rng.location == NSNotFound) break;
+//        response = [response substringFromIndex:rng.location+22];
+//        
+//        // Find the '('
+//        rng = [response rangeOfString:@"("];
+//        if (rng.location == NSNotFound) break;
+//        response = [response substringFromIndex:rng.location+1];
+//        
+//        // Find the ')'
+//        rng = [response rangeOfString:@")"];
+//        if (rng.location == NSNotFound) break;
+//        NSString* host = [response substringToIndex:rng.location];
+        id host = [NSNull null];
         
         // Find: <span id=score_2857424> 
         rng = [response rangeOfString:@"<span id=score_"];
@@ -116,7 +118,12 @@
         [[HnDb instance] executeUpdate:@"insert into articles(id, title, host, link, points, submitter, age, comments) values (?, ?, ?, ?, ?, ?, ?, ?)"
                   withArgumentsInArray:$arr($int(articleId), title, host, link, $int(points), submitter, age, $int(comments))];
     }
-    
+
+    // Keep track of when it was loaded
+    [[HnDb instance] executeUpdate:@"delete from pages_loaded where page = ?" withArgumentsInArray:$arr(page)];
+    [[HnDb instance] executeUpdate:@"insert into pages_loaded(page,loaded) values(?,?)"
+              withArgumentsInArray:$arr(page, [NSDate date])];
+
     [[HnDb instance] commit];
 
     /*
@@ -216,6 +223,9 @@
         comment = [comment stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
         comment = [comment stringByReplacingOccurrencesOfString:@"<p>" withString:@"\n"];
         comment = [removeTags stringByReplacingMatchesInString:comment options:0 range:NSMakeRange(0, comment.length) withTemplate:@""];
+        if (comment.length>500) {            
+            comment = $str(@"%@...", [comment substringToIndex:500]);
+        }
 
         [[HnDb instance] executeUpdate:@"insert into comments(article_id, position, indent, user, comment) values(?, ?, ?, ?, ?)" 
                   withArgumentsInArray:$arr($int(articleId), $int(position), $int(indent), user, comment)];        

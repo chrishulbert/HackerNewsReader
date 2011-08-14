@@ -75,12 +75,12 @@
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<bool key="IBUIHorizontal">NO</bool>
-				<object class="IBUINavigationController" key="IBUISelectedViewController" id="117233092">
-					<object class="IBUITabBarItem" key="IBUITabBarItem" id="365265839">
-						<string key="IBUITitle">Home</string>
+				<object class="IBUINavigationController" key="IBUISelectedViewController" id="384438313">
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="208946026">
+						<string key="IBUITitle">Classic</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">house.png</string>
+							<string key="NSResourceName">games.png</string>
 						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
@@ -92,7 +92,7 @@
 					</object>
 					<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					<bool key="IBUIHorizontal">NO</bool>
-					<object class="IBUINavigationBar" key="IBUINavigationBar" id="903660845">
+					<object class="IBUINavigationBar" key="IBUINavigationBar" id="978042465">
 						<nil key="NSNextResponder"/>
 						<int key="NSvFlags">256</int>
 						<string key="NSFrameSize">{0, 0}</string>
@@ -103,13 +103,12 @@
 					</object>
 					<object class="NSMutableArray" key="IBUIViewControllers">
 						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="IBUIViewController" id="859215642">
-							<string key="IBUITitle"/>
-							<object class="IBUINavigationItem" key="IBUINavigationItem" id="595969913">
-								<string key="IBUITitle">Hacker News</string>
+						<object class="IBUIViewController" id="975319965">
+							<object class="IBUINavigationItem" key="IBUINavigationItem" id="775057474">
+								<string key="IBUITitle">Root View Controller</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
-							<reference key="IBUIParentViewController" ref="117233092"/>
+							<reference key="IBUIParentViewController" ref="384438313"/>
 							<string key="IBUINibName">Home</string>
 							<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 								<int key="IBUIInterfaceOrientation">1</int>
@@ -122,13 +121,57 @@
 				</object>
 				<object class="NSMutableArray" key="IBUIViewControllers">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<reference ref="117233092"/>
+					<object class="IBUINavigationController" id="117233092">
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="365265839">
+							<string key="IBUITitle">Home</string>
+							<object class="NSCustomResource" key="IBUIImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">heart.png</string>
+							</object>
+							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						</object>
+						<reference key="IBUIParentViewController" ref="1034742383"/>
+						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
+						<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
+							<int key="IBUIInterfaceOrientation">1</int>
+							<int key="interfaceOrientation">1</int>
+						</object>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<bool key="IBUIHorizontal">NO</bool>
+						<object class="IBUINavigationBar" key="IBUINavigationBar" id="903660845">
+							<nil key="NSNextResponder"/>
+							<int key="NSvFlags">256</int>
+							<string key="NSFrameSize">{0, 0}</string>
+							<bool key="IBUIOpaque">NO</bool>
+							<bool key="IBUIClipsSubviews">YES</bool>
+							<bool key="IBUIMultipleTouchEnabled">YES</bool>
+							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						</object>
+						<object class="NSMutableArray" key="IBUIViewControllers">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBUIViewController" id="859215642">
+								<string key="IBUITitle"/>
+								<object class="IBUINavigationItem" key="IBUINavigationItem" id="595969913">
+									<string key="IBUITitle">Hacker News</string>
+									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								</object>
+								<reference key="IBUIParentViewController" ref="117233092"/>
+								<string key="IBUINibName">Home</string>
+								<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
+									<int key="IBUIInterfaceOrientation">1</int>
+									<int key="interfaceOrientation">1</int>
+								</object>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<bool key="IBUIHorizontal">NO</bool>
+							</object>
+						</object>
+					</object>
 					<object class="IBUINavigationController" id="341430744">
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="1050306816">
 							<string key="IBUITitle">New</string>
 							<object class="NSCustomResource" key="IBUIImage">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">alarm.png</string>
+								<string key="NSResourceName">fire.png</string>
 							</object>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
@@ -167,56 +210,13 @@
 							</object>
 						</object>
 					</object>
-					<object class="IBUINavigationController" id="384438313">
-						<object class="IBUITabBarItem" key="IBUITabBarItem" id="208946026">
-							<string key="IBUITitle">Classic</string>
-							<object class="NSCustomResource" key="IBUIImage">
-								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">newspaper.png</string>
-							</object>
-							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						</object>
-						<reference key="IBUIParentViewController" ref="1034742383"/>
-						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-						<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
-							<int key="IBUIInterfaceOrientation">1</int>
-							<int key="interfaceOrientation">1</int>
-						</object>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<bool key="IBUIHorizontal">NO</bool>
-						<object class="IBUINavigationBar" key="IBUINavigationBar" id="978042465">
-							<nil key="NSNextResponder"/>
-							<int key="NSvFlags">256</int>
-							<string key="NSFrameSize">{0, 0}</string>
-							<bool key="IBUIOpaque">NO</bool>
-							<bool key="IBUIClipsSubviews">YES</bool>
-							<bool key="IBUIMultipleTouchEnabled">YES</bool>
-							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						</object>
-						<object class="NSMutableArray" key="IBUIViewControllers">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUIViewController" id="975319965">
-								<object class="IBUINavigationItem" key="IBUINavigationItem" id="775057474">
-									<string key="IBUITitle">Root View Controller</string>
-									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								</object>
-								<reference key="IBUIParentViewController" ref="384438313"/>
-								<string key="IBUINibName">Home</string>
-								<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
-									<int key="IBUIInterfaceOrientation">1</int>
-									<int key="interfaceOrientation">1</int>
-								</object>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<bool key="IBUIHorizontal">NO</bool>
-							</object>
-						</object>
-					</object>
+					<reference ref="384438313"/>
 					<object class="IBUINavigationController" id="909315269">
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="417122063">
 							<string key="IBUITitle">Best</string>
 							<object class="NSCustomResource" key="IBUIImage">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">briefcase.png</string>
+								<string key="NSResourceName">star.png</string>
 							</object>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
@@ -255,12 +255,12 @@
 							</object>
 						</object>
 					</object>
-					<object class="IBUINavigationController" id="905060439">
-						<object class="IBUITabBarItem" key="IBUITabBarItem" id="253011820">
-							<string key="IBUITitle">Comments</string>
+					<object class="IBUINavigationController" id="7496194">
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="325603190">
+							<string key="IBUITitle">Ask</string>
 							<object class="NSCustomResource" key="IBUIImage">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">speechmedia.png</string>
+								<string key="NSResourceName">lightbulb.png</string>
 							</object>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
@@ -272,7 +272,7 @@
 						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<bool key="IBUIHorizontal">NO</bool>
-						<object class="IBUINavigationBar" key="IBUINavigationBar" id="532342079">
+						<object class="IBUINavigationBar" key="IBUINavigationBar" id="510856996">
 							<nil key="NSNextResponder"/>
 							<int key="NSvFlags">256</int>
 							<string key="NSFrameSize">{0, 0}</string>
@@ -283,13 +283,12 @@
 						</object>
 						<object class="NSMutableArray" key="IBUIViewControllers">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUIViewController" id="78473784">
-								<object class="IBUINavigationItem" key="IBUINavigationItem" id="19659736">
+							<object class="IBUIViewController" id="851288442">
+								<object class="IBUINavigationItem" key="IBUINavigationItem" id="1073298368">
 									<string key="IBUITitle">Root View Controller</string>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
-								<reference key="IBUIParentViewController" ref="905060439"/>
-								<string key="IBUINibName">Comments</string>
+								<reference key="IBUIParentViewController" ref="7496194"/>
 								<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 									<int key="IBUIInterfaceOrientation">1</int>
 									<int key="interfaceOrientation">1</int>
@@ -381,7 +380,7 @@
 							<reference ref="341430744"/>
 							<reference ref="384438313"/>
 							<reference ref="909315269"/>
-							<reference ref="905060439"/>
+							<reference ref="7496194"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -537,39 +536,39 @@
 						<reference key="parent" ref="909315269"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">147</int>
-						<reference key="object" ref="905060439"/>
+						<int key="objectID">152</int>
+						<reference key="object" ref="7496194"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="532342079"/>
-							<reference ref="78473784"/>
-							<reference ref="253011820"/>
+							<reference ref="510856996"/>
+							<reference ref="851288442"/>
+							<reference ref="325603190"/>
 						</object>
 						<reference key="parent" ref="1034742383"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">148</int>
-						<reference key="object" ref="532342079"/>
-						<reference key="parent" ref="905060439"/>
+						<int key="objectID">153</int>
+						<reference key="object" ref="510856996"/>
+						<reference key="parent" ref="7496194"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">149</int>
-						<reference key="object" ref="78473784"/>
+						<int key="objectID">154</int>
+						<reference key="object" ref="851288442"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="19659736"/>
+							<reference ref="1073298368"/>
 						</object>
-						<reference key="parent" ref="905060439"/>
+						<reference key="parent" ref="7496194"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">150</int>
-						<reference key="object" ref="19659736"/>
-						<reference key="parent" ref="78473784"/>
+						<int key="objectID">155</int>
+						<reference key="object" ref="1073298368"/>
+						<reference key="parent" ref="851288442"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">151</int>
-						<reference key="object" ref="253011820"/>
-						<reference key="parent" ref="905060439"/>
+						<int key="objectID">156</int>
+						<reference key="object" ref="325603190"/>
+						<reference key="parent" ref="7496194"/>
 					</object>
 				</object>
 			</object>
@@ -601,11 +600,11 @@
 					<string>144.CustomClassName</string>
 					<string>144.IBPluginDependency</string>
 					<string>146.IBPluginDependency</string>
-					<string>147.IBPluginDependency</string>
-					<string>148.IBPluginDependency</string>
-					<string>149.CustomClassName</string>
-					<string>149.IBPluginDependency</string>
-					<string>151.IBPluginDependency</string>
+					<string>152.IBPluginDependency</string>
+					<string>153.IBPluginDependency</string>
+					<string>154.CustomClassName</string>
+					<string>154.IBPluginDependency</string>
+					<string>156.IBPluginDependency</string>
 					<string>2.IBAttributePlaceholdersKey</string>
 					<string>2.IBEditorWindowLastContentRect</string>
 					<string>2.IBPluginDependency</string>
@@ -640,7 +639,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>Comments</string>
+					<string>Ask</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSMutableDictionary">
@@ -666,7 +665,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">151</int>
+			<int key="maxID">156</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
@@ -685,11 +684,11 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>alarm.png</string>
-				<string>briefcase.png</string>
-				<string>house.png</string>
-				<string>newspaper.png</string>
-				<string>speechmedia.png</string>
+				<string>fire.png</string>
+				<string>games.png</string>
+				<string>heart.png</string>
+				<string>lightbulb.png</string>
+				<string>star.png</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
