@@ -29,6 +29,9 @@ FMDatabase* _fmDbSingleton;
         if (![_fmDbSingleton tableExists:@"pages_loaded"]) {
             [_fmDbSingleton executeUpdate:@"create table pages_loaded (page text, loaded double)"];
         }
+        if (![_fmDbSingleton tableExists:@"comments_loaded"]) {
+            [_fmDbSingleton executeUpdate:@"create table comments_loaded (article_id int, loaded double)"];
+        }
         if (![_fmDbSingleton tableExists:@"comments"]) {
             [_fmDbSingleton executeUpdate:@"create table comments (article_id int, position int, indent int, user text, comment text)"];
         }

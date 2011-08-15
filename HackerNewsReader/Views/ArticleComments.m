@@ -45,12 +45,12 @@
     [act startAnimating];
     int gap = (self.navigationController.navigationBar.frame.size.height - act.frame.size.height) / 2;
     act.frame = CGRectOffset(act.frame, self.navigationController.navigationBar.frame.size.width-41-gap-act.frame.size.width, gap);
-    [self.view addSubview:act];
+    [self.navigationController.navigationBar addSubview:act];
     [act release];
 }
 
 - (void)hideActivity {
-    for (UIView* view in self.view.subviews) {
+    for (UIView* view in self.navigationController.navigationBar.subviews) {
         if ([view isKindOfClass:[UIActivityIndicatorView class]]) {
             [view removeFromSuperview];
         }
@@ -61,7 +61,9 @@
 
 - (void)refreshBnTapped {
     [self showActivity];
+    loading = YES;
     [HnScraper doCommentPageScrapeForArticle:self.articleId complete:^(BOOL success) {
+        loading = NO;
         [self hideActivity];
         if (success) {
             [self.tableView reloadData];
@@ -129,6 +131,19 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    // Return the number of rows in the section.
+    FMResultSet *s = [[HnDb instance] executeQuery:@"select loaded from comments_loaded where article_id=?" withArgumentsInArray:$arr($int(self.articleId))];
+    if ([s next]) {
+        NSDate* lastLoad = [s dateForColumnIndex:0];
+        if (lastLoad.timeIntervalSinceReferenceDate < [[NSDate date] timeIntervalSinceReferenceDate]-60*60) {
+            // Loaded more than an hour ago
+            [self refreshBnTapped];            
+        }
+    } else {
+        // Not loaded yet at all
+        [self refreshBnTapped];
+    }
+
     [super viewWillAppear:animated];
 }
 
@@ -157,9 +172,9 @@
     // Return the number of rows in the section.
     FMResultSet *s = [[HnDb instance] executeQuery:@"select count(*) from comments where article_id=?" withArgumentsInArray:$arr($int(self.articleId))];
     if ([s next]) {
-        return [s intForColumnIndex:0];
+        return MAX(1, [s intForColumnIndex:0]);
     }
-    return 0;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -169,15 +184,18 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.numberOfLines = 0;
+        cell.textLabel.font = [UIFont systemFontOfSize:18];
     }
     
     NSString* sql = @"select * from comments where article_id=? and position=?";
     FMResultSet *s = [[HnDb instance] executeQuery:sql withArgumentsInArray:$arr($int(self.articleId), $int(indexPath.row+1))];
     if ([s next]) {
         cell.textLabel.text = [s stringForColumn:@"comment"];
-        cell.textLabel.numberOfLines = 0;
-        cell.textLabel.font = [UIFont systemFontOfSize:18];
         cell.detailTextLabel.text = [s stringForColumn:@"user"];
+    } else {
+        cell.textLabel.text = loading ? @"Loading..." : @"No comments";
     }
     return cell;
 }
@@ -194,59 +212,6 @@
         return idealSize.height+22;
     }
     return self.tableView.rowHeight;
-}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
 }
 
 @end

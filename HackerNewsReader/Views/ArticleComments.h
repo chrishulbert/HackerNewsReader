@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ArticleComments : UITableViewController <UIActionSheetDelegate> {
-    
+    BOOL loading;
 }
 
 @property(nonatomic, assign) int articleId;

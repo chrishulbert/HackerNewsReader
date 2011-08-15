@@ -231,6 +231,11 @@
                   withArgumentsInArray:$arr($int(articleId), $int(position), $int(indent), user, comment)];        
     }        
     
+    // Keep track of when it was loaded
+    [[HnDb instance] executeUpdate:@"delete from comments_loaded where article_id = ?" withArgumentsInArray:$arr($int(articleId))];
+    [[HnDb instance] executeUpdate:@"insert into comments_loaded(article_id, loaded) values(?, ?)"
+              withArgumentsInArray:$arr($int(articleId), [NSDate date])];
+
     [[HnDb instance] commit];
 }
 
