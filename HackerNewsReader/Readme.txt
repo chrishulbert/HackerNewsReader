@@ -2,7 +2,13 @@ Hacker News Reader
 Chris Hulbert
 chris.hulbert@gmail.com
 
-I'm creating this app as a learning exercise for me, and to 'scratch my own itch' so to speak - to have a nice way to read HN from my iphone, in a simple app (as opposed to the assuredly fantastic, but slightly expensive other HN apps on the app store). I also intend open-sourcing this so that people can have a look at a nontrivial demo app. The more people that know obj-c/UIKit, the merrier!
+I'm creating this app as a learning exercise for me, and to 'scratch my own itch' so to speak - to have a nice simple way to read HN from my iphone while pushing my daughter on the swing. I also intend open-sourcing this so that people can have a look at a nontrivial demo app. The more people that know obj-c/UIKit, the merrier!
+
+See the code:
+https://github.com/chrishulbert/HackerNewsReader
+
+Open in app store:
+http://itunes.apple.com/us/app/hacker-news-reader/id457519010?ls=1&mt=8
 
 Purposes:
 * Practice
