@@ -16,14 +16,6 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
-    if (self) {
-        // Make the refresh button
-        UIBarButtonItem* refreshBn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshBnTapped)];
-        self.navigationItem.rightBarButtonItem = refreshBn;
-        [refreshBn release];
-        
-        self.title = self.baseTitle;
-    }
     return self;
 }
 
@@ -54,37 +46,21 @@
     return @"Hacker News";
 }
 
-#pragma mark - Activity helper
-
-- (void)showActivity {
-    UIActivityIndicatorView* act = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    [act startAnimating];
-    int gap = (self.navigationController.navigationBar.frame.size.height - act.frame.size.height) / 2;
-    act.frame = CGRectOffset(act.frame, self.navigationController.navigationBar.frame.size.width-41-gap-act.frame.size.width, gap);
-    [self.navigationController.navigationBar addSubview:act];
-    [act release];
-}
-
-- (void)hideActivity {
-    for (UIView* view in self.navigationController.navigationBar.subviews) {
-        if ([view isKindOfClass:[UIActivityIndicatorView class]]) {
-            [view removeFromSuperview];
-        }
-    }
-}
-
 #pragma mark - Refresh data
 
 - (void)refreshBnTapped {
-    [self showActivity];
     [HnScraper doMainPageScrapeOf:self.baseUrl storeAsPage:self.basePage complete:^(BOOL success) {
-        [self hideActivity];
         if (success) {
             [self.tableView reloadData];
+            [self stopLoading];
         } else {
             [[[[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not connect to server" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil] autorelease] show];
         }
     }];
+}
+
+- (void) refresh {
+    [self performSelector:@selector(refreshBnTapped) withObject:nil afterDelay:1.0];
 }
 
 #pragma mark - View lifecycle
@@ -95,11 +71,11 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:127/256.0 green:50/256.0 blue:0 alpha:1];
     self.navigationController.navigationBar.translucent = YES;
-
-
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -128,7 +104,7 @@
         // Not loaded yet at all
         [self refreshBnTapped];
     }
-
+    
     [super viewWillAppear:animated];
 }
 
@@ -188,7 +164,7 @@
                                          [self pluralComments:[s intForColumn:@"comments"]],
                                          [s stringForColumn:@"age"]);
     }
-
+    
     return cell;
 }
 
@@ -199,8 +175,8 @@
         NSString *title = [s stringForColumn:@"title"];
         int textWid = self.view.frame.size.width - 40;
         CGSize idealSize = [title sizeWithFont:[UIFont boldSystemFontOfSize:18] 
-                               constrainedToSize:CGSizeMake(textWid, 900) 
-                                   lineBreakMode:UILineBreakModeWordWrap];
+                             constrainedToSize:CGSizeMake(textWid, 900) 
+                                 lineBreakMode:UILineBreakModeWordWrap];
         return idealSize.height+22;   
     }
     return self.tableView.rowHeight;
