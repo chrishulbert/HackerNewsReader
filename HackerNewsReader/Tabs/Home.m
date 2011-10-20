@@ -52,15 +52,15 @@
     [HnScraper doMainPageScrapeOf:self.baseUrl storeAsPage:self.basePage complete:^(BOOL success) {
         if (success) {
             [self.tableView reloadData];
-            [self stopLoading];
         } else {
             [[[[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not connect to server" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil] autorelease] show];
         }
     }];
+    [self stopLoading];
 }
 
 - (void) refresh {
-    [self performSelector:@selector(refreshBnTapped) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(refreshBnTapped) withObject:nil];
 }
 
 #pragma mark - View lifecycle
